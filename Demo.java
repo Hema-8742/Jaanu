@@ -1,4 +1,5 @@
 //TRYING 2 inherit propertises of 2 classes
+   abstract class MyClass{
     public void foo(){
       System.out.println("Concrete method of parent class");
     }
