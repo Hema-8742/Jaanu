@@ -6,9 +6,6 @@
      public void dooMethod();
  }
  class Demo1 implements MyClass,Hema{
-    /* Must Override this method while extending
-     * MyClas
-     */
     public void fooMethod()
     {
         System.out.println("overriding abstract method");
