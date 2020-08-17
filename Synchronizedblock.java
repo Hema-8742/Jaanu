@@ -1,22 +1,24 @@
 class Table
-{  
-    synchronized void printTable(int n)
+{
+    void printTable(int n)
     {
-        for(int i=1;i<=5;i++)
+        synchronized(this)
         {
-            System.out.println(n*i);  
-        try
-        {  
-         Thread.sleep(400);  
+            for(int i=1;i<=5;i++)
+            {
+                System.out.println(n*i);  
+                try
+                {  
+                    Thread.sleep(400);  
+                }
+                catch(Exception e)
+                {
+                    System.out.println(e);
+                }  
+            }
         }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }  
-      }  
-     
-    }  
-   }  
+    }
+} 
      
    class MyThread1 extends Thread
    {
