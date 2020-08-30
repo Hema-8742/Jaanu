@@ -1,25 +1,40 @@
-interface Interface1{
-	public void method1();
-	public void method2();
+mport java.util.*;
+interface AdvancedArithmetic{
+  int divisor_sum(int n);
 }
-class Check implements Interface1{
-	public void method1()
-	{
-		System.out.println("Currently working under switchboard team");
-	}
-	public void method2()
-	{
-		System.out.println("Currently working under teleport team");
-		
-	}
-}
-public class Interface{
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Check c=new Check();
-		c.method1();
-		c.method2();
-	}
-
+class MyCalculator implements AdvancedArithmetic
+{
+    public int divisor_sum(int n)
+    {
+        int sum=n;
+        for(int a=1;a<=n/2;a++)
+        {
+            if(n%a==0)
+            {
+                sum = sum+a;
+            }
+        }
+        return sum;
+    }
+} 
+class Interface{
+    public static void main(String []args){
+        MyCalculator my_calculator = new MyCalculator();
+        System.out.print("I implemented: ");
+        ImplementedInterfaceNames(my_calculator);
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.print(my_calculator.divisor_sum(n) + "\n");
+      	sc.close();
+    }
+    /*
+     *  ImplementedInterfaceNames method takes an object and prints the name of the interfaces it implemented
+     */
+    static void ImplementedInterfaceNames(Object o){
+        Class[] theInterfaces = o.getClass().getInterfaces();
+        for (int i = 0; i < theInterfaces.length; i++){
+            String interfaceName = theInterfaces[i].getName();
+            System.out.println(interfaceName);
+        }
+    }
 }
